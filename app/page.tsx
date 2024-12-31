@@ -1,11 +1,15 @@
+import LoadingContainer from "@/components/global/LoadingContainer";
 import FeaturedProducts from "@/components/home/FeaturedProducts"
 import HeroContainer from "@/components/home/HeroContainer"
+import { Suspense } from "react";
 
 const HomePage = () => {
   return (
     <>
       <HeroContainer />
-      <FeaturedProducts />
+      <Suspense fallback={<LoadingContainer />} >
+        <FeaturedProducts />
+      </Suspense>
     </>
   )
 }
