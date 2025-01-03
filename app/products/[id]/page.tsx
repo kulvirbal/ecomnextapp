@@ -33,7 +33,7 @@ const SingleProductPage = async ({
                 <div>
                     <div className="flex gap-x-8 items-center">
                         <h1 className="text-3xl font-bold">{name}</h1>
-                        <FavoriteToggleButton productId={productId} />
+                        <FavoriteToggleButton />
                     </div>
                     <ProductRating productId={productId} />
                     <h4 className='text-xl mt-2'>{company}</h4>

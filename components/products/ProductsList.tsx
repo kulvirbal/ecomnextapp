@@ -30,7 +30,7 @@ const ProductsList = ({products}:{products: Product[]}) => {
             </Card>
           </Link>
           <div className='absolute bottom-8 right-8 z-5'>
-            <FavoriteToggleButton productId={id}/>
+            <FavoriteToggleButton />
           </div>
         </article>
       })}
