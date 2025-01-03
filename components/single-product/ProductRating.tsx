@@ -9,7 +9,7 @@ const ProductRating = ({productId}: {productId: string}) => {
     return (
         <span className={className}>
             <FaStar className='w-3 h-3' />
-            {rating} {countValue}
+            {rating} {countValue} {productId}
         </span>
     )
 }
