@@ -11,7 +11,8 @@ const SingleProductPage = async ({
   }: {
     params: Promise<{ id: string }>
   }) => {
-    const product = await fetchSingleProduct(params.id);
+    const productId = (await params).id
+    const product = await fetchSingleProduct(productId);
     const { name, image, company, description, price } = product;
     const dollarsAmount = formatCurrency(price);
 
@@ -28,9 +29,9 @@ const SingleProductPage = async ({
                 <div>
                     <div className="flex gap-x-8 items-center">
                         <h1 className="text-3xl font-bold">{name}</h1>
-                        <FavoriteToggleButton productId={params.id} />
+                        <FavoriteToggleButton productId={productId} />
                     </div>
-                    <ProductRating productId={params.id} />
+                    <ProductRating productId={productId} />
                     <h4 className='text-xl mt-2'>{company}</h4>
                     <p className='mt-3 text-md bg-muted inline-block p-2 rounded'>
                         {dollarsAmount}
@@ -38,7 +39,7 @@ const SingleProductPage = async ({
                     <p className='mt-6 leading-8 text-muted-foreground'>
                         {description}
                     </p>
-                    <AddToCart productId={params.id} />
+                    <AddToCart productId={productId} />
                 </div>
             </div>
         </section>
