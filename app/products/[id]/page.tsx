@@ -5,6 +5,7 @@ import { formatCurrency } from '@/utils/format';
 import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
+import { redirect } from 'next/navigation';
 
 const SingleProductPage = async ({
     params,
@@ -13,6 +14,9 @@ const SingleProductPage = async ({
   }) => {
     const productId = (await params).id
     const product = await fetchSingleProduct(productId);
+    if (product === null) {
+        return redirect('/products');
+    }
     const { name, image, company, description, price } = product;
     const dollarsAmount = formatCurrency(price);
 
